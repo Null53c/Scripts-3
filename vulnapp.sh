@@ -17,19 +17,23 @@ read -p 'What do you choose? ' APP
 
 if [ $APP -eq 1 ]; then
 	printf  "Starting Juice Shop"
-	docker run -it -d --name juice_shop bkimminich/juice-shop /bin/bash
+	docker run --rm --name juice_shop -p 3000:3000 bkimminich/juice-shop 
 elif [ $APP -eq 2 ]; then
        printf  "Starting Metasploitable 2"
-	docker run -it -d --name Metasploitable meknisa/metasploitable-base
+	docker run -it --rm --name Metasploitable meknisa/metasploitable-base
 elif [ $APP -eq 3 ]; then
 	printf  "Starting DVWA"
-	docker run -it -d --name DVWA vulnerables/web-dvwa
+	docker run --rm --name DVWA -p 80:80 vulnerables/web-dvwa
 elif [ $APP -eq 4 ]; then 
 	printf  "Starting BWAPP"
-	docker run -it -d --name BWAPP raesene/bwapp
+	docker run -it --rm --name BWAPP -p 81:81 raesene/bwapp
 elif [ $APP -eq 5 ]; then 
 	printf  "Starting WebGoat"
-	docker run -it -d --name WebGoat webgoat/webgoat-8.0 
+	docker run -it --rm --name WebGoat -p 82:82 webgoat/webgoat-8.0 
 else 
 	printf  "None of your conditions met the critera.... FAIL"
 fi
+
+
+
+
