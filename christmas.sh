@@ -2,7 +2,6 @@
 
 
 # Get the Env ready.
-
 printf  "Today we are going to set up your pentesting lab. \n"
 sleep 3
 
@@ -79,8 +78,8 @@ printf  "Starting Juice Shop"
 printf  "docker run -it -d bkimminich/juice-shop /bin/bash"
 printf  "docker run -it -d docker pull tleemcjr/metasploitable2"
 printf  "docker run -it -d vulnerables/web-dvwa"
-printf  "docker run -it -d raesene/bwapp"
-printf  "docker run -it -d webgoat/webgoat-8.0"
+printf  "docker run -it -d mutzel/all-in-one-hackazon"
+printf  "docker run -it -d tuxotron/tiredful-api"
 
 
 # STEPS TO INSTALLING THE SOFTWARE! 
