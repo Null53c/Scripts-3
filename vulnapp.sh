@@ -10,26 +10,31 @@ printf  " Your options are the following:\n"
 printf  " 1 - Juice Shop\n"
 printf  " 2 - Metasploitable 2\n"
 printf  " 3 - Damn Vulnerable Web App\n"
-printf  " 4 - BWapp\n"
-printf  " 5 - WebGoat\n"
+printf  " 4 - Hackazon\n"
+printf  " 5 - Tiredful API\n"
 
 read -p 'What do you choose? ' APP
 
 if [ $APP -eq 1 ]; then
 	printf  "Starting Juice Shop"
-	docker run --rm --name juice_shop -p 3000:3000 bkimminich/juice-shop 
+	docker run --rm -d --name juice_shop -p 3000:3000 bkimminich/juice-shop 
 elif [ $APP -eq 2 ]; then
        printf  "Starting Metasploitable 2"
-	docker run -it --rm --name Metasploitable meknisa/metasploitable-base
+	docker run -it -d --rm --name Metasploitable tleemcjr/metasploitable2 sh -c "/bin/services.sh && bash"
+		printf "Hopping into Metasploitable 2\n"
+	docker attach Metasploitable
 elif [ $APP -eq 3 ]; then
 	printf  "Starting DVWA"
-	docker run --rm --name DVWA -p 80:80 vulnerables/web-dvwa
+	docker run --rm -d --name DVWA -p 81:81 vulnerables/web-dvwa
+	printf "Nice.. Go to this address 127.0.0.1/install\n"
 elif [ $APP -eq 4 ]; then 
-	printf  "Starting BWAPP"
-	docker run -it --rm --name BWAPP -p 81:81 raesene/bwapp
+	printf  "Starting Hackazon"
+	docker run --name hackazon -d -p 80:80 mutzel/all-in-one-hackazon
+	printf "Please wait about 30 seconds before going to site.."
+	printf "Nice.. Go this this address 127.0.0.1:80\n"
 elif [ $APP -eq 5 ]; then 
-	printf  "Starting WebGoat"
-	docker run -it --rm --name WebGoat -p 82:82 webgoat/webgoat-8.0 
+	printf  "Starting Tiredful API"
+	docker run --name Tiredful_API -p 8000:8000 tuxotron/tiredful-api
 else 
 	printf  "None of your conditions met the critera.... FAIL"
 fi
