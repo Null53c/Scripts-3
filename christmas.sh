@@ -22,7 +22,7 @@ sudo apt-get install apt-transport-https ca-certificates curl software-propertie
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb[arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-sleep 3 
+sleep 1
 printf  "Repos are good, lets install docker!\n\n"
 sudo apt-get update
 sudo apt-get install docker-ce
@@ -35,49 +35,49 @@ sudo docker run hello-world
 
 # Install the Attacker Machine
 printf  "Lets pull your lab from the docker registry\n\n"
-sleep 2 
+sleep 1 
 docker pull ephemeralcodex/redteamparadise:christmas2019
 
 printf  "The image has been pulled... lets start it up!\n\n"
-sleep 10
+sleep 1
 printf  "I will do this for you now.. but you can do this your self with the following"
 printf  "docker run -it -d ephemeralcodex/redteamparadise:christmas2019 /bin/bash\n\n"
 docker run -it -d --name Hack_lab ephemeralcodex/redteamparadise:christmas2019 /bin/bash
-sleep 5 
+sleep 1 
 
 
 
 
 # Install Vulnerable Docker images 
 printf  "Lets install some vulnerable web apps to play with\n\n"
-printf  " Your apps will include: JuiceShop\n Metasploitable 2\n DamnVulnerableWebApp\n bWAPP\n & WebGoat\n"
+printf  " Your apps will include: JuiceShop\n Metasploitable 2\n DamnVulnerableWebApp\n Hackazon\n & Tiredful API\n"
 
 printf  "Installing Juice Shop\n"
 docker pull bkimminich/juice-shop
-sleep 3
+sleep 2
 
 printf  "Installing Metasploitable 2\n"
-docker pull meknisa/metasploitable-base
-sleep 3
+docker pull tleemcjr/metasploitable2
+sleep 2
 
 printf  "Installing DamnVulnerableWebApp\n"
 docker pull vulnerables/web-dvwa
-sleep 3 
+sleep 2 
 
-printf  "Installing Bwapp\n\n"
-docker pull raesene/bwapp
-sleep 3
+printf  "Installing Hackazon\n\n"
+docker pull mutzel/all-in-one-hackazon
+sleep 2
 
-printf  "Installing WebGoat\n\n"
-docker pull webgoat/webgoat-8.0:latest
-sleep 3 
+printf  "Tiredful API\n\n"
+docker pull tuxotron/tiredful-api
+sleep 2 
 
 
 
 printf  "#################HOW TO START THESE APPS ########################\n"
 printf  "Starting Juice Shop"
 printf  "docker run -it -d bkimminich/juice-shop /bin/bash"
-printf  "docker run -it -d meknisa/metasploitable-base"
+printf  "docker run -it -d docker pull tleemcjr/metasploitable2"
 printf  "docker run -it -d vulnerables/web-dvwa"
 printf  "docker run -it -d raesene/bwapp"
 printf  "docker run -it -d webgoat/webgoat-8.0"
