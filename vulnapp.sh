@@ -12,6 +12,7 @@ printf  " 2 - Metasploitable 2\n"
 printf  " 3 - Damn Vulnerable Web App\n"
 printf  " 4 - Hackazon\n"
 printf  " 5 - Tiredful API\n"
+printf  " 6 - Security Shepherd.\n"
 
 read -p 'What do you choose? ' APP
 
