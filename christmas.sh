@@ -47,6 +47,8 @@ sleep 1
 
 
 
+
+
 # Install Vulnerable Docker images 
 printf  "Lets install some vulnerable web apps to play with\n\n"
 printf  " Your apps will include: JuiceShop\n Metasploitable 2\n DamnVulnerableWebApp\n Hackazon\n & Tiredful API\n"
@@ -71,6 +73,34 @@ printf  "Tiredful API\n\n"
 docker pull tuxotron/tiredful-api
 sleep 2 
 
+printf "Would you like to install OWASP Security Shepherd?\n"
+printf "A bit more setup is required. (yes/no) "
+read CHOICE
+
+if [ $CHOICE -eq yes ]; then
+    printf "We are going to install Security Shepherd.\n"
+    printf "This is going to install the following:\n"
+    printf "git\n maven\n default-jdk"
+    sleep 4
+    sudo apt install git maven docker-compose default-jdk
+    mkdir security_shepherd
+    cd security_shepherd
+    git clone https://github.com/OWASP/SecurityShepherd.git 
+    sudo gpasswd -a $USER docker
+    mvn -Pdocker clean install -DskipTests
+    sleep 3
+
+    printf " Installing the git repo"
+    git clone https://github.com/OWASP/SecurityShepherd.git
+    cd SecurityShepherd
+    sudo gpasswd -a $USER docker
+    mvn -Pdocker clean install -DskipTests
+else
+    break
+fi
+
+
+printf "Now try going to your localhost."
 
 
 printf  "#################HOW TO START THESE APPS ########################\n"
