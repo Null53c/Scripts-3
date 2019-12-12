@@ -35,38 +35,34 @@ printf  "lets test if it worked!\n\n"
 sudo docker run hello-world
 
 
-
-
-# Install the Attacker Machine
+# INSTALL ATTACKER CONTAINER
 printf  "Lets pull your lab from the docker registry\n\n"
 sleep 1 
 docker pull kalilinux/kali-bleeding-edge
 
 printf  "The image has been pulled... lets start it up!\n\n"
-sleep 1
+sleep 3
+
 printf  "I will do this for you now.. but you can do this your self with the following"
-printf  "docker run -it -d ephemeralcodex/redteamparadise:christmas2019 /bin/bash\n\n"
-docker run -it -d --name Hack_lab ephemeralcodex/redteamparadise:christmas2019 /bin/bash
-sleep 1 
+printf  "docker run -it -d kalilinux/kali-bleeding-edge /bin/bash\n\n"
+docker run -it -d --name Hack_lab kalilinux/kali-bleeding-edge /bin/bash
+sleep 3
 
 
-
-
-
-
-# Install Vulnerable Docker images 
+# INSTALL VULNERABLE CONTAINERS  
 printf  "Lets install some vulnerable web apps to play with\n\n"
 printf  " Your apps will include: JuiceShop\n Metasploitable 2\n DamnVulnerableWebApp\n Hackazon\n & Tiredful API\n"
+sleep 3
 
 printf  "Installing Juice Shop\n"
 docker pull bkimminich/juice-shop
 sleep 2
 
-printf  "Installing Metasploitable 2\n"
+printf  "Installing Metasploitable 2\n\n"
 docker pull tleemcjr/metasploitable2
 sleep 2
 
-printf  "Installing DamnVulnerableWebApp\n"
+printf  "Installing DamnVulnerableWebApp\n\n"
 docker pull vulnerables/web-dvwa
 sleep 2 
 
@@ -77,6 +73,10 @@ sleep 2
 printf  "Tiredful API\n\n"
 docker pull tuxotron/tiredful-api
 sleep 2 
+printf "\n\n"
+
+
+# THIS SECTION IS WIP 
 
 # printf "Would you like to install OWASP Security Shepherd?\n"
 # printf "A bit more setup is required. (yes/no) "
@@ -100,8 +100,6 @@ sleep 2
 #     cd SecurityShepherd
 #     sudo gpasswd -a $USER docker
 #     mvn -Pdocker clean install -DskipTests
-# else
-#     break
 # fi
 
 
