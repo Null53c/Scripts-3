@@ -6,30 +6,31 @@ printf  "Today we are going to set up your pentesting lab. \n"
 sleep 3
 
 printf  "Let's update first\n\n"
+sleep 3
 sudo apt-get update -y 
 
 printf  "Complete... On to the next step.\n\n"
 sleep 2 
 
 printf  "Time to upGRADE your box\n\n"
+sleep 3 
 sudo apt-get upgrade -y
 
 printf  "Complete"
 
 printf  "Install the necessary docker repos\n\n"
+sleep 3 
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb[arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-sleep 1
+sleep 2
 printf  "Repos are good, lets install docker!\n\n"
 sudo apt-get update
 sudo apt-get install docker-ce
 
 printf  "lets test if it worked!\n\n"
 sudo docker run hello-world
-
-
 
 
 # Install the Attacker Machine
@@ -43,9 +44,6 @@ printf  "I will do this for you now.. but you can do this your self with the fol
 printf  "docker run -it -d ephemeralcodex/redteamparadise:christmas2019 /bin/bash\n\n"
 docker run -it -d --name Hack_lab ephemeralcodex/redteamparadise:christmas2019 /bin/bash
 sleep 1 
-
-
-
 
 
 
