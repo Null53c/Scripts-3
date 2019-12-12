@@ -55,9 +55,9 @@ printf  "Installing Juice Shop\n"
 docker pull bkimminich/juice-shop
 sleep 2
 
-#printf  "Installing Metasploitable 2\n"
-#docker pull tleemcjr/metasploitable2
-#sleep 2
+printf  "Installing Metasploitable 2\n"
+docker pull tleemcjr/metasploitable2
+sleep 2
 
 printf  "Installing DamnVulnerableWebApp\n"
 docker pull vulnerables/web-dvwa
