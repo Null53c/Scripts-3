@@ -19,6 +19,7 @@ read -p 'What do you choose? ' APP
 if [ $APP -eq 1 ]; then
 	printf  "Starting Juice Shop"
 	docker run --rm -d --name juice_shop -p 3000:3000 bkimminich/juice-shop 
+	printf "Please go to 127.0.0.1:3000\n\n"
 elif [ $APP -eq 2 ]; then
        printf  "Starting Metasploitable 2"
 	docker run -it -d --rm --name Metasploitable tleemcjr/metasploitable2 sh -c "/bin/services.sh && bash"
@@ -27,19 +28,16 @@ elif [ $APP -eq 2 ]; then
 elif [ $APP -eq 3 ]; then
 	printf  "Starting DVWA"
 	docker run --rm -d --name DVWA -p 81:81 vulnerables/web-dvwa
-	printf "Nice.. Go to this address 127.0.0.1/install\n"
+	printf "Nice.. Go to this address 127.0.0.1/install\n\n"
 elif [ $APP -eq 4 ]; then 
 	printf  "Starting Hackazon"
 	docker run --name hackazon -d -p 80:80 mutzel/all-in-one-hackazon
 	printf "Please wait about 30 seconds before going to site.."
-	printf "Nice.. Go this this address 127.0.0.1:80\n"
+	printf "Nice.. Go this this address 127.0.0.1:80\n\n"
 elif [ $APP -eq 5 ]; then 
 	printf  "Starting Tiredful API"
 	docker run --name Tiredful_API -p 8000:8000 tuxotron/tiredful-api
+	printf "Please go to 127.0.0.1:8000"
 else 
 	printf  "None of your conditions met the critera.... FAIL"
 fi
-
-
-
-
