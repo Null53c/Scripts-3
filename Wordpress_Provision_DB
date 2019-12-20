@@ -1,4 +1,7 @@
 #!/bin/bash
+# DATABASE SCRIPT
+
+
 set -e
 
 # wait for apt locks on startup
