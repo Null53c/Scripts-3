@@ -3,6 +3,10 @@
 
 # THis is a continuous WIP
 
+# Greet the user!
+printf "Hey Aaron, I wrote this for your christmas gift. I hope it helps you with your studies and helps you get ahead of your peers!"
+
+
 # Get the Env ready.
 printf  "Today we are going to set up your pentesting lab. \n"
 sleep 3
